@@ -10,7 +10,8 @@ Bounce btn = Bounce();
 //int contagem = 0;
 //bool estadoAtualB;
 bool estadoLed;
-
+int duracao = 2000;
+bool acionado = LOW;
 
 
 void setup() {
@@ -52,13 +53,20 @@ void loop() {
 //ex. 2 bounce
 
 
-btn.update();
+  btn.update();
+  if(btn.read() == LOW && btn.currentDuration() >= duracao && !acionado){
+    estadoLed =! estadoLed;
+    digitalWrite(led, estadoLed);
+    acionado = true;
+  }
 
-if(btn.fell()){
-  if(btn.currentDuration)
+  if (btn.rose()){
+    acionado = false;
+  }
 
-}
- 
+
+
+
 
   
   //qualquer alteração
