@@ -79,11 +79,10 @@ btn.update();
 
   if (btn.rose()){
     if (!acionado) {
-      // Se não atingiu o tempo do clique longo, inverte o LED normalmente
       estadoLed = !estadoLed;
       digitalWrite(led, estadoLed);
     }
-    acionado = false; // Reseta a trava para o próximo clique
+    acionado = false; 
 
   }
   //qualquer alteração
