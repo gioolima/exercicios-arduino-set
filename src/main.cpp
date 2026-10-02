@@ -53,22 +53,39 @@ void loop() {
 //ex. 2 bounce
 
 
-  btn.update();
+//  btn.update();
+//  if(btn.read() == LOW && btn.currentDuration() >= duracao && !acionado){
+//    estadoLed =! estadoLed;
+//    digitalWrite(led, estadoLed);
+//    acionado = true;
+//  }
+//
+//  if (btn.rose()){
+//    acionado = false;
+//  }
+
+
+// ex. 3 bounce
+
+btn.update();
+  
   if(btn.read() == LOW && btn.currentDuration() >= duracao && !acionado){
-    estadoLed =! estadoLed;
-    digitalWrite(led, estadoLed);
+    digitalWrite(led, HIGH);
+    delay(200);
+    digitalWrite(led, LOW);
+    
     acionado = true;
   }
 
   if (btn.rose()){
-    acionado = false;
+    if (!acionado) {
+      // Se não atingiu o tempo do clique longo, inverte o LED normalmente
+      estadoLed = !estadoLed;
+      digitalWrite(led, estadoLed);
+    }
+    acionado = false; // Reseta a trava para o próximo clique
+
   }
-
-
-
-
-
-  
   //qualquer alteração
   //Serial.println(btn.changed());
   //delay(1000);
