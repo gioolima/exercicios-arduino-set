@@ -54,16 +54,19 @@ void loop() {
 
 
 //  btn.update();
-//  if(btn.read() == LOW && btn.currentDuration() >= duracao && !acionado){
-//    estadoLed =! estadoLed;
-//    digitalWrite(led, estadoLed);
-//    acionado = true;
+//  if(!btn.read()){
+//    if (btn.currentDuration() == 2000 && acionado == false){
+//      estadoLed =! estadoLed;
+//      acionado = true;
+//
+//    }    
 //  }
 //
-//  if (btn.rose()){
+//  if (btn.read()){
 //    acionado = false;
 //  }
-
+//
+//  digitalWrite(led, estadoLed);
 
 // ex. 3 bounce
 
